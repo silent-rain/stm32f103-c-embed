@@ -1,14 +1,21 @@
 {
   "configurations": [
     {
-      "name": "linux-gcc-x64",
+      "name": "linux-gcc-arm",
       "includePath": [
-        "${workspaceFolder}/**"
+        "${workspaceFolder}/**",
+        "${workspaceFolder}/lib/stm32f10x_firmware/Library",
+        "${workspaceFolder}/lib/stm32f10x_firmware/Start",
+        "${workspaceFolder}/lib/stm32f10x_firmware/User",
+        "${workspaceFolder}/lib/System",
+        "${workspaceFolder}/src/Hardware"
       ],
       "defines": [
         "_DEBUG",
         "UNICODE",
-        "_UNICODE"
+        "_UNICODE",
+        "USE_STDPERIPH_DRIVER",
+        "STM32F10X_MD"
       ],
       "compilerPath": "/usr/bin/gcc",
       "cStandard": "${default}",

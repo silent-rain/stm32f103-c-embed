@@ -6,15 +6,43 @@
       "type": "shell",
       "command": "/usr/bin/arm-none-eabi-gcc",
       "args": [
+        "-O0",
+        "-ffunction-sections",
+        "-fdata-sections",
+        "-fno-omit-frame-pointer",
+        "-Wall",
+        "-Wextra",
+        "-specs=nano.specs",
+        "-specs=nosys.specs",
         "-mcpu=cortex-m3",
         "-mthumb",
+        "-march=armv7-m",
         "-g",
+        "-DUSE_STDPERIPH_DRIVER",
+        "-DSTM32F10X_MD",
+        // 头文件所在的路径
+        // "-I",
+        // "${workspaceFolder}/include",
+        // 这里是固件库源代码所在的路径
         "-I",
-        "${workspaceFolder}/include",
+        "${workspaceFolder}/lib/stm32f10x_firmware/Library",
+        // 这里是启动代码所在的路径
+        "-I",
+        "${workspaceFolder}/lib/stm32f10x_firmware/Start",
+        // 这里是用户自定义代码所在的路径
+        "-I",
+        "${workspaceFolder}/lib/stm32f10x_firmware/User",
+        // 这里是系统相关代码所在的路径
+        "-I",
+        "${workspaceFolder}/lib/System",
+        // 这里是硬件相关代码所在的路径
+        "-I",
+        "${workspaceFolder}/src/Hardware",
+        // 这里是输出文件的路径和名称
         "-o",
         "${workspaceFolder}/build/output.elf",
+        // 这里是主程序源文件的路径
         "${workspaceFolder}/src/main.c"
-        // 其他编译选项和源文件
       ],
       "group": {
         "kind": "build",

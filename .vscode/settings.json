@@ -33,5 +33,11 @@
     "**/.vscode",
     "**/.vscode/**"
   ],
-  "C_Cpp_Runner.useAddressSanitizer": false
+  "C_Cpp_Runner.useAddressSanitizer": false,
+  "files.associations": {
+    "w25q64.h": "c",
+    "oled.h": "c",
+    "delay.h": "c",
+    "stm32f10x.h": "c"
+  }
 }
