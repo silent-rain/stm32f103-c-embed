@@ -1,0 +1,25 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build",
+      "type": "shell",
+      "command": "/usr/bin/arm-none-eabi-gcc",
+      "args": [
+        "-mcpu=cortex-m3",
+        "-mthumb",
+        "-g",
+        "-I",
+        "${workspaceFolder}/include",
+        "-o",
+        "${workspaceFolder}/build/output.elf",
+        "${workspaceFolder}/src/main.c"
+        // 其他编译选项和源文件
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}
