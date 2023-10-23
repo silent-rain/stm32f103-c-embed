@@ -2,11 +2,23 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "cwd": "${workspaceRoot}",
-      "executable": "./build/executable.elf",
+      "name": "Debug with ST-Util",
+      "request": "launch",
+      "type": "cortex-debug",
+      "cwd": "${workspaceFolder}",
+      "executable": "./build/output.elf",
+      "runToEntryPoint": "main",
+      "showDevDebugOutput": "none",
+      "servertype": "stutil",
+      "preLaunchTask": "build",
+      "device": "STM32F103C8"
+    },
+    {
       "name": "Debug with OpenOCD",
       "request": "launch",
       "type": "cortex-debug",
+      "cwd": "${workspaceRoot}",
+      "executable": "./build/output.elf",
       "servertype": "openocd",
       "configFiles": [
         "${workspaceRoot}/openocd.cfg"
@@ -22,12 +34,12 @@
       "type": "cortex-debug",
       "request": "launch",
       "cwd": "${workspaceFolder}",
-      "executable": "./build/executable.elf",
+      "executable": "./build/output.elf",
       "runToEntryPoint": "main",
       "showDevDebugOutput": "none",
       "servertype": "stlink",
       "interface": "swd",
-      "preLaunchTask": "build",
+      // "preLaunchTask": "build",
       "device": "STM32F103C8"
     },
     {

@@ -16,6 +16,12 @@ sudo pacman -S arm-none-eabi-gcc arm-none-eabi-newlib
 sudo pacman -S arm-none-eabi-gdb
 ```
 
+- 烧录
+
+```shell
+arm-none-eabi-gdb -iex 'add-auto-load-safe-path .' -q build/output.elf
+```
+
 ## Openocd 调试器
 
 - [OpenOCD](http://openocd.org/getting-openocd/)
@@ -27,7 +33,7 @@ sudo pacman -S openocd
 - 烧录文件
 
 ```shell
-openocd -f path/to/your/openocd/interface/config.cfg -f path/to/your/openocd/target/config.cfg -c "program path/to/your/compiled/file.elf verify reset exit"
+openocd -f path/to/your/openocd/target/config.cfg -c "program path/to/your/compiled/file.elf verify reset exit"
 ```
 
 - tasks.json, 可以将这些命令添加到 VSCode 的 tasks.json 文件中，以便在 VSCode 中直接执行烧录任务。
@@ -71,5 +77,6 @@ sudo pacman -S extra/stlink
 - 命令烧录文件（请根据您的目标文件进行修改）
 
 ```shell
-st-flash write path/to/your/compiled/file.bin 0x8000000
+st-flash --flash=128k write build/output.elf 0x8000000
+st-util --debug --flash=64k write build/output.elf 0x8000000
 ```

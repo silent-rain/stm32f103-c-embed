@@ -4,11 +4,11 @@
       "name": "linux-gcc-arm",
       "includePath": [
         "${workspaceFolder}/**",
-        "${workspaceFolder}/lib/stm32f10x_firmware/Library",
-        "${workspaceFolder}/lib/stm32f10x_firmware/Start",
-        "${workspaceFolder}/lib/stm32f10x_firmware/User",
-        "${workspaceFolder}/lib/System",
-        "${workspaceFolder}/src/Hardware"
+        "${workspaceFolder}/library/STM32F10x_StdPeriph_Driver/inc",
+        "${workspaceFolder}/library/CMSIS",
+        "${workspaceFolder}/library/System/inc",
+        "${workspaceFolder}/hardware/inc",
+        "${workspaceFolder}/user/inc"
       ],
       "defines": [
         "_DEBUG",

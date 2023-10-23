@@ -17,8 +17,8 @@
         "-Wall",
         "-Wextra",
         // -specs=nano.specs 和 -specs=nosys.specs 是两个链接选项，表示使用 nano 版本的 C 库和无系统调用的 C 库，这样可以减少目标代码的大小。
-        // "-specs=nano.specs",
-        // "-specs=nosys.specs",
+        "-specs=nano.specs",
+        "-specs=nosys.specs",
         // 是一个编译选项，表示指定目标处理器为 cortex-m3。
         "-mcpu=cortex-m3",
         // -mthumb 和 -march=armv7-m 是两个编译选项，表示使用 thumb 指令集和 armv7-m 架构 。
@@ -29,36 +29,34 @@
         // 预处理选项，表示定义宏
         "-DUSE_STDPERIPH_DRIVER",
         "-DSTM32F10X_MD",
-        // 头文件所在的路径
-        // "-I",
-        // "${workspaceFolder}/include",
         // 这里是固件库源代码所在的路径
         "-I",
-        "${workspaceFolder}/lib/stm32f10x_firmware/Library",
+        "${workspaceFolder}/library/STM32F10x_StdPeriph_Driver/inc",
         // 这里是启动代码所在的路径
         "-I",
-        "${workspaceFolder}/lib/stm32f10x_firmware/Start",
-        // 这里是用户自定义代码所在的路径
-        "-I",
-        "${workspaceFolder}/lib/stm32f10x_firmware/User",
+        "${workspaceFolder}/library/CMSIS",
         // 这里是系统相关代码所在的路径
         "-I",
-        "${workspaceFolder}/lib/System",
+        "${workspaceFolder}/library/System/inc",
         // 这里是硬件相关代码所在的路径
         "-I",
-        "${workspaceFolder}/src/Hardware",
+        "${workspaceFolder}/hardware/inc",
+        "-T",
+        "${workspaceFolder}/library/CMSIS/Link/Medium_density/stm32_flash.ld",
         // 这里是输出文件的路径和名称
         "-o",
         "${workspaceFolder}/build/output.elf",
         // 这里是主程序源文件的路径
-        "${workspaceFolder}/src/main.c",
-        "${workspaceFolder}/lib/stm32f10x_firmware/Library/stm32f10x_gpio.c",
-        "${workspaceFolder}/lib/stm32f10x_firmware/Library/stm32f10x_spi.c",
-        "${workspaceFolder}/lib/stm32f10x_firmware/Library/stm32f10x_rcc.c",
-        "${workspaceFolder}/lib/System/Delay.c",
-        "${workspaceFolder}/src/Hardware/OLED.c",
-        "${workspaceFolder}/src/Hardware/MySPI.c",
-        "${workspaceFolder}/src/Hardware/W25Q64.c"
+        "${workspaceFolder}/user/src/main.c",
+        "${workspaceFolder}/library/CMSIS/startup/startup_stm32f10x_hd.s",
+        "${workspaceFolder}/library/CMSIS/system_stm32f10x.c",
+        "${workspaceFolder}/library/STM32F10x_StdPeriph_Driver/src/stm32f10x_gpio.c",
+        "${workspaceFolder}/library/STM32F10x_StdPeriph_Driver/src/stm32f10x_spi.c",
+        "${workspaceFolder}/library/STM32F10x_StdPeriph_Driver/src/stm32f10x_rcc.c",
+        "${workspaceFolder}/library/System/src/Delay.c",
+        "${workspaceFolder}/hardware/src/OLED.c",
+        "${workspaceFolder}/hardware/src/MySPI.c",
+        "${workspaceFolder}/hardware/src/W25Q64.c"
       ],
       "group": {
         "kind": "build",
