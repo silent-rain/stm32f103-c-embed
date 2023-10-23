@@ -4,6 +4,6 @@
     "marus25.cortex-debug",
     "dan-c-underwood.arm",
     // 离线安装包链接：https://github.com/microsoft/vscode-cpptools/releases
-    "vscode.cpptools"
+    "ms-vscode.cpptools"
   ]
 }
