@@ -51,7 +51,14 @@
         "-o",
         "${workspaceFolder}/build/output.elf",
         // 这里是主程序源文件的路径
-        "${workspaceFolder}/src/main.c"
+        "${workspaceFolder}/src/main.c",
+        "${workspaceFolder}/lib/stm32f10x_firmware/Library/stm32f10x_gpio.c",
+        "${workspaceFolder}/lib/stm32f10x_firmware/Library/stm32f10x_spi.c",
+        "${workspaceFolder}/lib/stm32f10x_firmware/Library/stm32f10x_rcc.c",
+        "${workspaceFolder}/lib/System/Delay.c",
+        "${workspaceFolder}/src/Hardware/OLED.c",
+        "${workspaceFolder}/src/Hardware/MySPI.c",
+        "${workspaceFolder}/src/Hardware/W25Q64.c"
       ],
       "group": {
         "kind": "build",
