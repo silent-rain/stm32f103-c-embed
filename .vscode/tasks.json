@@ -6,18 +6,27 @@
       "type": "shell",
       "command": "/usr/bin/arm-none-eabi-gcc",
       "args": [
+        // 是一个优化选项，表示不进行任何优化，保留所有的调试信息
         "-O0",
+        // -ffunction-sections 和 -fdata-sections 是两个编译选项，表示将每个函数和数据放在单独的段中，这样可以方便链接器进行垃圾回收，去除未使用的代码和数据。
         "-ffunction-sections",
         "-fdata-sections",
+        // 是一个编译选项，表示不省略帧指针，这样可以方便调试和分析栈帧
         "-fno-omit-frame-pointer",
+        // -Wall 和 -Wextra 是两个编译选项，表示开启所有的警告和额外的警告，这样可以帮助发现潜在的错误。
         "-Wall",
         "-Wextra",
-        "-specs=nano.specs",
-        "-specs=nosys.specs",
+        // -specs=nano.specs 和 -specs=nosys.specs 是两个链接选项，表示使用 nano 版本的 C 库和无系统调用的 C 库，这样可以减少目标代码的大小。
+        // "-specs=nano.specs",
+        // "-specs=nosys.specs",
+        // 是一个编译选项，表示指定目标处理器为 cortex-m3。
         "-mcpu=cortex-m3",
+        // -mthumb 和 -march=armv7-m 是两个编译选项，表示使用 thumb 指令集和 armv7-m 架构 。
         "-mthumb",
         "-march=armv7-m",
+        // 是一个编译选项，表示生成调试信息。
         "-g",
+        // 预处理选项，表示定义宏
         "-DUSE_STDPERIPH_DRIVER",
         "-DSTM32F10X_MD",
         // 头文件所在的路径
